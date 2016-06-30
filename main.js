@@ -14,8 +14,10 @@ function start () {
 
 //player 1 and 2 selections
 function selection(){
+//adding event listener for player1 and player2
 window.addEventListener("keydown", selection1);
 window.addEventListener("keydown", selection2);
+//player 1 selection
   function selection1(e) {
     var p1img = document.getElementById("p1img");
     var play = e.keyCode;
@@ -31,7 +33,7 @@ window.addEventListener("keydown", selection2);
       checkWin();
     }
   }
-
+//player 2 selection
   function selection2(e) {
     var p2img = document.getElementById("p2img");
     var play = e.keyCode;
@@ -46,7 +48,6 @@ window.addEventListener("keydown", selection2);
     if ((p1Choice === "fire" || p1Choice === "water" || p1Choice === "earth") && (p2Choice === "fire" || p2Choice === "water" || p2Choice === "earth") ) {
       checkWin();
     }
-
   }
 }
 

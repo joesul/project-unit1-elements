@@ -114,11 +114,11 @@ window.addEventListener("keydown", selection2);
       alert("Player 1 WINS!")
     }
   }
-  
+
 // reset health
 // function rematch() {
 //   var rematchButton = querySelector("input");
 //   rematchButton.addEventListener("onclick", function() {
 //     window.location.reload();
 //   })
-}
+//}

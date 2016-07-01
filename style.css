@@ -1,19 +1,25 @@
 body {
   font-family: fantasy;
+  background: url(http://www.intrawallpaper.com/static/images/White-Background-9B1.jpg);
 }
 
 h1 {
   text-align: center;
   font-weight: bold;
-  border: 2px solid black;
+  color: blue;
+}
+
+h3 {
+  color: green;
 }
 
 p {
   font-size: 20px;
+  color: red;
 }
 
 .playerMenu {
   width: 100%;
   text-align: center;
-  border: 2px solid black;
+  border: 2px dotted yellow;
 }

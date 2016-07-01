@@ -19,32 +19,30 @@ window.addEventListener("keydown", selection1);
 window.addEventListener("keydown", selection2);
 //player 1 selection
   function selection1(e) {
-    var p1img = document.getElementById("p1img");
+    var p1img;
     var play = e.keyCode;
     switch (play) {
-      case 81: p1img.innerHTML = "fire"; p1Choice = "fire";   window.removeEventListener("keydown", selection1); break;
-      case 87: p1img.innerHTML = "water"; p1Choice = "water";   window.removeEventListener("keydown", selection1); break;
-      case 69: p1img.innerHTML = "earth"; p1Choice = "earth";   window.removeEventListener("keydown", selection1); break;
+      case 81: console.log("fire"); p1Choice = "fire";   window.removeEventListener("keydown", selection1); break;
+      case 87: console.log("water"); p1Choice = "water";   window.removeEventListener("keydown", selection1); break;
+      case 69: console.log("earth"); p1Choice = "earth";   window.removeEventListener("keydown", selection1); break;
       default: break;
     }
     e.stopPropagation();
-    console.log(p1Choice);
     if ((p1Choice === "fire" || p1Choice === "water" || p1Choice === "earth") && (p2Choice === "fire" || p2Choice === "water" || p2Choice === "earth") ) {
       checkWin();
     }
   }
 //player 2 selection
   function selection2(e) {
-    var p2img = document.getElementById("p2img");
+    var p2img;
     var play = e.keyCode;
     switch (play) {
-      case 73: p2img.innerHTML = "fire"; p2Choice = "fire"; window.removeEventListener("keydown", selection2); break;
-      case 79: p2img.innerHTML = "water"; p2Choice = "water"; window.removeEventListener("keydown", selection2); break;
-      case 80: p2img.innerHTML = "earth"; p2Choice = "earth";window.removeEventListener("keydown", selection2); break;
+      case 73: console.log("fire"); p2Choice = "fire"; window.removeEventListener("keydown", selection2); break;
+      case 79: console.log("water"); p2Choice = "water"; window.removeEventListener("keydown", selection2); break;
+      case 80: console.log("earth"); p2Choice = "earth";window.removeEventListener("keydown", selection2); break;
       default: break;
     }
     e.stopPropagation();
-    console.log(p2Choice);
     if ((p1Choice === "fire" || p1Choice === "water" || p1Choice === "earth") && (p2Choice === "fire" || p2Choice === "water" || p2Choice === "earth") ) {
       checkWin();
     }
@@ -54,57 +52,58 @@ window.addEventListener("keydown", selection2);
 
 // determine winner
   function checkWin() {
+
+    var p1Health = document.querySelector("#p1Health");
+    var p2Health = document.querySelector("#p2Health");
+
     if (p1Choice === p2Choice) {
-      console.log("The result is a tie!");
-      clear();
+      alert("The result is a tie!");
     }
     else if (p1Choice === "fire" && p2Choice === "earth") {
-        console.log("fire wins!");
-        p2HP--;
-        console.log(`player 2 health: ${p2HP}`);
-        clear();
+      alert("Player 1 chose Element: Fire \nPlayer 2 chose Element: Earth")
+      alert("Fire beats Earth!");
+      p2HP--;
+      p2Health.innerText = `Health: ${p2HP}`;
     }
     else if (p1Choice === "water" && p2Choice === "fire") {
-        console.log("water wins!");
-        p2HP--;
-        console.log(`player 2 health: ${p2HP}`);
-        clear();
+      alert("Player 1 chose Element: Water \nPlayer 2 chose Element: Fire")
+      alert("Water beats Fire!");
+      p2HP--;
+      p2Health.innerText = `Health: ${p2HP}`;
     }
     else if (p1Choice === "earth" && p2Choice === "water") {
-        console.log("earth wins!");
-        p2HP--;
-        console.log(`player 2 health: ${p2HP}`);
-        clear();
+      alert("Player 1 chose Element: Earth \nPlayer 2 chose Element: Water")
+      alert("Earth beats Water!");
+      p2HP--;
+      p2Health.innerText = `Health: ${p2HP}`;
     }
     else if (p2Choice === "fire" && p1Choice === "earth") {
-        console.log("fire wins!");
-        p1HP--;
-        console.log(`player 1 health: ${p1HP}`);
-        clear();
+      alert("Player 1 chose Element: Earth \nPlayer 2 chose Element: Fire")
+      alert("Fire beats Earth!");
+      p1HP--;
+      p1Health.innerText = `Health: ${p1HP}`;
     }
     else if (p2Choice === "water" && p1Choice === "fire") {
-        console.log("water wins!");
-        p1HP--;
-        console.log(`player 1 health: ${p1HP}`);
-        clear();
+      alert("Player 1 chose Element: Fire \nPlayer 2 chose Element: Water")
+      alert("Water beats Fire!");
+      p1HP--;
+      p1Health.innerText = `Health: ${p1HP}`;
     }
     else if (p2Choice === "earth" && p1Choice === "water") {
-        console.log("earth wins!");
-        p1HP--;
-        console.log(`player 1 health: ${p1HP}`);
-        clear();
+      alert("Player 1 chose Element: Water \nPlayer 2 chose Element: Earth")
+      alert("Earth beats Water!");
+      p1HP--;
+      p1Health.innerText = `Health: ${p1HP}`;
     }
+
+    clear();
   }
 
 
 //clear selections
   function clear() {
-    var p1img = document.getElementById("p1img");
-    var p2img = document.getElementById("p2img");
     p1Choice = "";
     p2Choice = "";
-    p1img.innerHTML="";
-    p2img.innerHTML="";
     if (p1HP > 0 && p2HP >0) {
     start();
     }

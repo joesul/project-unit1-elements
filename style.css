@@ -1,0 +1,19 @@
+body {
+  font-family: fantasy;
+}
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+  border: 2px solid black;
+}
+
+p {
+  font-size: 20px;
+}
+
+.playerMenu {
+  width: 100%;
+  text-align: center;
+  border: 2px solid black;
+}
